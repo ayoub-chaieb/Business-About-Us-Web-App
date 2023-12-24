@@ -14,24 +14,24 @@ id est laborum.""")
 
 st.header("Meet Our Team !")
 
-col1, empty_col1, col2, empty_col2, col3 = st.columns([1.5, 0.5, 1.5, 0.5, 1.5])
+col1, col2, col3 = st.columns(3)
 
 df = pd.read_csv('data.csv', sep=",")
 
 with col1:
     for i, row in df[::3].iterrows():
-        st.header(row["first name"] + " " + row["last name"])
+        st.header(row["first name"].title() + " " + row["last name"].title())
         st.write(row["role"])
         st.image(f"images/{row['image']}")
 
 with col2:
     for i, row in df[1::3].iterrows():
-        st.header(row["first name"] + " " + row["last name"])
+        st.header(row["first name"].title() + " " + row["last name"].title())
         st.write(row["role"])
         st.image(f"images/{row['image']}")
 
 with col3:
     for i, row in df[2::3].iterrows():
-        st.header(row["first name"] + " " + row["last name"])
+        st.header(row["first name"].title() + " " + row["last name"].title())
         st.write(row["role"])
         st.image(f"images/{row['image']}")
